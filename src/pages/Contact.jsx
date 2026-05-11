@@ -24,7 +24,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState({});
-  const recipientRef = useRef("hasnain221059@gmail.com");
+  const recipientRef = useRef("adminsak081@gmail.com");
 
   useEffect(() => {
     getEmailSettings().then((s) => { recipientRef.current = s.recipientEmail; }).catch(() => {});
@@ -106,16 +106,6 @@ export default function Contact() {
                 <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fill in the form and our technical team will respond within one business day. For urgent enquiries, please call us directly.</p>
               </div>
               <div className="space-y-4">
-                <a href={`mailto:${company.email}`}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-[#162032] border border-gray-200 dark:border-green-900/20 hover:border-green-400 dark:hover:border-green-600/40 transition-all duration-200 group shadow-sm hover:shadow-md">
-                  <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-600/15 border border-green-200 dark:border-green-600/20 flex items-center justify-center shrink-0 group-hover:bg-green-200 dark:group-hover:bg-green-600/25 transition-colors">
-                    <Mail className="w-4 h-4 text-green-600 dark:text-green-400" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">Email</div>
-                    <div className="text-gray-700 dark:text-gray-200 text-sm font-medium">{company.email}</div>
-                  </div>
-                </a>
                 {company.offices.map((o) => (
                   <div key={o.city} className="p-4 rounded-xl bg-white dark:bg-[#162032] border border-gray-200 dark:border-green-900/20 shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
@@ -127,6 +117,12 @@ export default function Contact() {
                       <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-xs mb-0.5 pl-6">
                         <User className="w-3 h-3 text-green-600 dark:text-green-400 shrink-0" />
                         <span className="font-medium text-gray-700 dark:text-gray-300">{o.poc}</span>
+                      </div>
+                    )}
+                    {o.pocEmail && (
+                      <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-xs mb-0.5 pl-6">
+                        <Mail className="w-3 h-3 text-green-600 dark:text-green-400 shrink-0" />
+                        <a href={`mailto:${o.pocEmail}`} className="hover:text-green-600 dark:hover:text-green-400 transition-colors">{o.pocEmail}</a>
                       </div>
                     )}
                     {o.phone && <p className="text-gray-600 dark:text-gray-400 text-xs pl-6">☎ {o.phone}{o.cell ? ` | ${o.cell}` : ""}</p>}

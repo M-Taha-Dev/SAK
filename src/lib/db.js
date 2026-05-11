@@ -8,7 +8,9 @@ import {
   doc,
   getDoc,
   setDoc,
+  serverTimestamp,
 } from "firebase/firestore";
+import { supabase } from "./supabase";
 
 const col = (name) => collection(db, name);
 const ref = (name, id) => doc(db, name, id);
@@ -46,10 +48,28 @@ export const addNewsArticle = wrap("addNewsArticle", (data) => addDoc(col("news"
 export const updateNewsArticle = wrap("updateNewsArticle", (id, data) => updateDoc(ref("news", id), data));
 export const deleteNewsArticle = wrap("deleteNewsArticle", (id) => deleteDoc(ref("news", id)));
 
+export const uploadResume = wrap("uploadResume", async (file) => {
+  const ext = file.name.split(".").pop();
+  const path = `${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+  const { error } = await supabase.storage.from("sak").upload(path, file);
+  if (error) throw error;
+  const { data } = supabase.storage.from("sak").getPublicUrl(path);
+  return data.publicUrl;
+});
+
+export const addApplication = wrap("addApplication", (data) =>
+  addDoc(col("applications"), { ...data, createdAt: serverTimestamp() })
+);
+
+export const getJobs = wrap("getJobs", () => snapOrdered("jobs", "order"));
+export const addJob = wrap("addJob", (data) => addDoc(col("jobs"), data));
+export const updateJob = wrap("updateJob", (id, data) => updateDoc(ref("jobs", id), data));
+export const deleteJob = wrap("deleteJob", (id) => deleteDoc(ref("jobs", id)));
+
 const SETTINGS_REF = () => doc(db, "settings", "email");
 export const getEmailSettings = wrap("getEmailSettings", async () => {
   const d = await getDoc(SETTINGS_REF());
-  return d.exists() ? d.data() : { recipientEmail: "hasnain221059@gmail.com" };
+  return d.exists() ? d.data() : { recipientEmail: "adminsak081@gmail.com" };
 });
 export const updateEmailSettings = wrap("updateEmailSettings", (data) =>
   setDoc(SETTINGS_REF(), data, { merge: true })

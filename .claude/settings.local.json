@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(curl -o /dev/null -s -w \"%{http_code} %{content_type} %{url_effective}\\\\n\" \"https://www.sapphiretextiles.com.pk/sites/default/files/logo_5.svg\")",
+      "Bash(curl -o /dev/null -s -w \"%{http_code} %{content_type} %{url_effective}\\\\n\" \"https://media.licdn.com/dms/image/v2/D4D0BAQGQHgpH6qrTpA/company-logo_200_200/company-logo_200_200/0/1689658620164/future_fashion_textile_logo?e=2147483647&v=beta&t=2IhlI_pXJ7BdDZUPBJ5aOBaQDqh8Kyxa4tHJZ8uL9zY\")",
+      "Bash(curl -s -o /tmp/logo_5.svg \"https://www.sapphiretextiles.com.pk/sites/default/files/logo_5.svg\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://www.sapphiretextiles.com.pk/sites/default/files/logo___TRACKED_VAR__.svg)",
+      "Bash(curl -s https://www.sapphiretextiles.com.pk/sites/default/files/__TRACKED_VAR__)"
     ]
   }
 }

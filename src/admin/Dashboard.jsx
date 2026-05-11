@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import { Users, Newspaper, LogOut } from "lucide-react";
+import { Users, Newspaper, LogOut, Briefcase } from "lucide-react";
 import TeamManager from "./TeamManager";
 import NewsManager from "./NewsManager";
+import JobsManager from "./JobsManager";
 
 const TABS = [
   { id: "team", label: "Team", Icon: Users },
   { id: "news", label: "News", Icon: Newspaper },
+  { id: "jobs", label: "Jobs", Icon: Briefcase },
 ];
 
 export default function Dashboard({ user }) {
@@ -54,6 +56,7 @@ export default function Dashboard({ user }) {
       <main className="max-w-7xl mx-auto px-6 py-8">
         {activeTab === "team" && <TeamManager />}
         {activeTab === "news" && <NewsManager />}
+        {activeTab === "jobs" && <JobsManager />}
       </main>
     </div>
   );

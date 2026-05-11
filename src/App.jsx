@@ -13,6 +13,7 @@ import Sustainability from "./pages/Sustainability";
 import Team from "./pages/Team";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +42,7 @@ function AnimatedRoutes() {
           <Route path="/team" element={<Team />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

@@ -15,6 +15,7 @@ const navLinks = [
   { to: "/team", label: "Team" },
   { to: "/news", label: "News" },
   { to: "/contact", label: "Contact" },
+  { to: "/careers", label: "Careers" },
 ];
 
 export default function Navbar() {
@@ -49,14 +50,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
+                  `px-2.5 py-1.5 text-[13px] font-medium rounded-md transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-400/10"
                       : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5"

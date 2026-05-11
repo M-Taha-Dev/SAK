@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, FlaskConical, Droplets, Sparkles, Layers } from "lucide-react";
 import AnimatedSection, { StaggerContainer, StaggerItem } from "../components/AnimatedSection";
-import { stats, products, industries, values } from "../data/content";
+import { stats, products, industries, values, clients } from "../data/content";
 
 const iconMap = { FlaskConical, Droplets, Sparkles, Layers };
 
@@ -74,6 +74,52 @@ export default function Home() {
                 <div className="text-gray-600 dark:text-gray-400 text-sm">{s.label}</div>
               </StaggerItem>
             ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ── Clients Grid ── */}
+      <section className="section-padding bg-white dark:bg-[#0a0f1a] border-b border-gray-100 dark:border-green-900/20">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <span className="text-green-600 dark:text-green-400 text-sm font-semibold tracking-widest uppercase mb-2 block">Trusted By</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+              150+ Leading Textile Manufacturers
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">
+              From Pakistan's largest mills to specialized garment exporters — SAK is the chemical partner of choice.
+            </p>
+          </AnimatedSection>
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {clients.map(({ name, logo, darkBg }) => {
+              const initials = name.split(" ").filter(w => /^[A-Za-z]/.test(w)).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+              return (
+                <StaggerItem key={name}>
+                  <div className="group flex flex-col items-center gap-3 p-4 rounded-xl border border-gray-200 dark:border-green-900/20 bg-gray-50 dark:bg-[#0e1a0e] hover:border-green-400 dark:hover:border-green-600/40 hover:bg-green-50 dark:hover:bg-green-900/10 transition-all duration-200 cursor-default h-full">
+                    <div className={`w-full h-20 flex items-center justify-center rounded-lg border transition-colors px-2 py-2 ${darkBg ? "bg-[#1a2a4a] border-[#1a2a4a]" : "bg-white border-gray-100 group-hover:border-green-200"}`}>
+                      {logo ? (
+                        <img
+                          src={logo}
+                          alt={name}
+                          className="max-h-full max-w-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                            e.currentTarget.nextSibling.style.display = "flex";
+                          }}
+                        />
+                      ) : null}
+                      <span
+                        className="text-sm font-bold text-green-700 items-center justify-center w-full h-full"
+                        style={{ display: logo ? "none" : "flex" }}
+                      >
+                        {initials}
+                      </span>
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-xs font-medium text-center leading-tight">{name}</span>
+                  </div>
+                </StaggerItem>
+              );
+            })}
           </StaggerContainer>
         </div>
       </section>

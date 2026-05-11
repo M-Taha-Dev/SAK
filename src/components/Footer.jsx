@@ -66,10 +66,6 @@ export default function Footer() {
               {company.tagline}. Delivering world-class chemical formulations for the global textile industry since {company.founded}.
             </p>
             <div className="space-y-3">
-              <a href={`mailto:${company.email}`} className="flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 text-sm transition-colors">
-                <Mail className="w-4 h-4 text-green-600 dark:text-green-600 shrink-0" />
-                {company.email}
-              </a>
               {company.offices.map((o) => (
                 <div key={o.city} className="pt-2 border-t border-gray-200 dark:border-green-900/20 first:border-0 first:pt-0">
                   <p className="text-green-700 dark:text-green-400 text-[11px] font-semibold uppercase tracking-wider mb-1">{o.city}</p>
@@ -81,6 +77,12 @@ export default function Footer() {
                     <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs mt-1 mb-0.5">
                       <User className="w-3.5 h-3.5 text-green-600 shrink-0" />
                       <span className="font-medium text-gray-600 dark:text-gray-300">{o.poc}</span>
+                    </div>
+                  )}
+                  {o.pocEmail && (
+                    <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs mb-0.5">
+                      <Mail className="w-3.5 h-3.5 text-green-600 shrink-0" />
+                      <a href={`mailto:${o.pocEmail}`} className="hover:text-green-600 dark:hover:text-green-400 transition-colors">{o.pocEmail}</a>
                     </div>
                   )}
                   {o.phone && (
