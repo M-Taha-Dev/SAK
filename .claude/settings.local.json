@@ -7,7 +7,21 @@
       "Bash(curl -s -o /tmp/logo_5.svg \"https://www.sapphiretextiles.com.pk/sites/default/files/logo_5.svg\")",
       "Read(//tmp/**)",
       "Bash(curl -s -o /dev/null -w '%{http_code}' https://www.sapphiretextiles.com.pk/sites/default/files/logo___TRACKED_VAR__.svg)",
-      "Bash(curl -s https://www.sapphiretextiles.com.pk/sites/default/files/__TRACKED_VAR__)"
+      "Bash(curl -s https://www.sapphiretextiles.com.pk/sites/default/files/__TRACKED_VAR__)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(curl -sf http://localhost:5174)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1440,1200 --screenshot=/tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/footer-desktop.png http://localhost:5174/)",
+      "Bash(pkill -f \"google-chrome.*headless\")",
+      "Bash(google-chrome --version)",
+      "Bash(timeout 20 google-chrome --headless=new --disable-gpu --no-sandbox --disable-dev-shm-usage --hide-scrollbars --window-size=1440,1200 --screenshot=/tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/test.png \"http://localhost:5174/\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(timeout 20 google-chrome --headless=new --disable-gpu --no-sandbox --disable-dev-shm-usage --hide-scrollbars --window-size=1440,1800 --screenshot=/tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/footer-desktop.png http://localhost:5174/)",
+      "Bash(timeout 20 google-chrome --headless=new --disable-gpu --no-sandbox --disable-dev-shm-usage --hide-scrollbars --window-size=390,2200 --screenshot=/tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/footer-mobile.png http://localhost:5174/)",
+      "Bash(pkill -f \"vite --host\")",
+      "Bash(rm -f /tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/footer-*.png /tmp/claude-1000/-home-taha-Desktop-sak/42805d1a-9529-430d-aa1c-7490e1b9007e/scratchpad/test.png)"
     ]
   }
 }

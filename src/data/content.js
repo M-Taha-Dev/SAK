@@ -1,5 +1,10 @@
 // SAK Speciality Chemicals — Site Content (sourced from company profile)
 
+import agiDenimLogo from "../assets/clients/agi-denim-logo.svg";
+import artisticMillinersLogo from "../assets/clients/artistic-milliners-logo.webp";
+import yunusLogo from "../assets/clients/yunus-logo.png";
+import soortyLogo from "../assets/clients/soorty-logo-white.png";
+
 export const company = {
   name: "SAK Speciality Chemicals",
   shortName: "SAK",
@@ -13,10 +18,11 @@ export const company = {
   linkedin: "#",
   facebook: "#",
   offices: [
-    { city: "USA (Head Office)", address: "1449 Collins Dr, Elburn, IL 60119", phone: null, cell: "+1 (224) 334-6196", poc: "Waqas Khalid — Director Marketing", pocEmail: "waqas@sakchemicals.com" },
-    { city: "Lahore", address: "105-A, Block P Model Town, Lahore", phone: "042-35166653", cell: "0300-8402181" },
-    { city: "Faisalabad", address: "House #123, St#4/5, Zia Town Canal Road, Faisalabad", phone: "041-5472275", cell: null },
-    { city: "Karachi", address: "79/5-2 Gulshan e Iqbal, Karachi", phone: null, cell: "0301-2298652" },
+    { group: "US Office", city: "US Office", address: "1449 Collins Dr, Elburn, IL 60119", phone: null, cell: "+1 (224) 334-6196", poc: "Waqas Khalid — Director Marketing", pocEmail: "waqas@sakchemicals.com" },
+    { group: "Pakistan Offices", city: "Lahore", address: "105-A, Block P Model Town, Lahore", phone: "042-35166653", cell: "0300-8402181", pocEmail: "info@sakchemicals.com" },
+    { group: "Pakistan Offices", city: "Faisalabad", address: "House #123, St#4/5, Zia Town Canal Road, Faisalabad", phone: "041-5472275", cell: null, pocEmail: "info@sakchemicals.com" },
+    { group: "Pakistan Offices", city: "Karachi", address: "74-C, 13th Commercial Building, 3rd Floor, DHA Phase 2, Karachi", phone: null, cell: "0330-3743859", pocEmail: "info@sakchemicals.com" },
+    { group: "Bangladesh Office", city: "Bangladesh", address: null, phone: null, cell: "033-322-52087", poc: "Dr Abdul Jabbar, Marketing Consultant", pocEmail: null },
   ],
 };
 
@@ -48,6 +54,10 @@ export const clients = [
   { name: "Zypher Textile",         logo: "https://media.licdn.com/dms/image/v2/C4D0BAQElFuSwc33Pwg/company-logo_200_200/company-logo_200_200/0/1655795798559/zephyr_textiles_limited_logo?e=2147483647&v=beta&t=PATDUY4C5Vttr-zJPko8c1tc01T0DsfDUqZ90Y5oPxs",                                                                         wide: false },
   { name: "Future Fashion",         logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGQHgpH6qrTpA/company-logo_200_200/company-logo_200_200/0/1689658620164/future_fashion_textile_logo?e=2147483647&v=beta&t=2IhlI_pXJ7BdDZUPBJ5aOBaQDqh8Kyxa4tHJZ8uL9zY",                                                                         wide: false },
   { name: "Chawala Enterprises",    logo: "https://media.licdn.com/dms/image/v2/C510BAQEoyNYnWqw1yw/company-logo_200_200/company-logo_200_200/0/1630564565436/chawala_enterprises_logo?e=2147483647&v=beta&t=3T9jwpRw5cNCivN1n-UaTK_g1Y5v2pEYVYSQulTW45I",                                                                              wide: false },
+  { name: "AGI Denim",              logo: agiDenimLogo,          wide: false, darkBg: true },
+  { name: "Artistic Milliners",     logo: artisticMillinersLogo, wide: true  },
+  { name: "Yunus Textile Mills",    logo: yunusLogo,              wide: true  },
+  { name: "Soorty",                 logo: soortyLogo,             wide: true,  darkBg: true },
 ];
 
 export const products = [

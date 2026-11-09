@@ -69,7 +69,7 @@ export const deleteJob = wrap("deleteJob", (id) => deleteDoc(ref("jobs", id)));
 const SETTINGS_REF = () => doc(db, "settings", "email");
 export const getEmailSettings = wrap("getEmailSettings", async () => {
   const d = await getDoc(SETTINGS_REF());
-  return d.exists() ? d.data() : { recipientEmail: "adminsak081@gmail.com" };
+  return d.exists() ? d.data() : { recipientEmail: "info@sakchemicals.com" };
 });
 export const updateEmailSettings = wrap("updateEmailSettings", (data) =>
   setDoc(SETTINGS_REF(), data, { merge: true })

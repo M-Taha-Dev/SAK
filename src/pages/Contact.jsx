@@ -24,7 +24,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState({});
-  const recipientRef = useRef("adminsak081@gmail.com");
+  const recipientRef = useRef("info@sakchemicals.com");
 
   useEffect(() => {
     getEmailSettings().then((s) => { recipientRef.current = s.recipientEmail; }).catch(() => {});
